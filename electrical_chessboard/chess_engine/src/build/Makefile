@@ -129,6 +129,30 @@ chess_engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engine.dir/build.make CMakeFiles/chess_engine.dir/build
 .PHONY : chess_engine/fast
 
+attack_tables.o: attack_tables.cpp.o
+.PHONY : attack_tables.o
+
+# target to build an object file
+attack_tables.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engine.dir/build.make CMakeFiles/chess_engine.dir/attack_tables.cpp.o
+.PHONY : attack_tables.cpp.o
+
+attack_tables.i: attack_tables.cpp.i
+.PHONY : attack_tables.i
+
+# target to preprocess a source file
+attack_tables.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engine.dir/build.make CMakeFiles/chess_engine.dir/attack_tables.cpp.i
+.PHONY : attack_tables.cpp.i
+
+attack_tables.s: attack_tables.cpp.s
+.PHONY : attack_tables.s
+
+# target to generate assembly for a file
+attack_tables.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chess_engine.dir/build.make CMakeFiles/chess_engine.dir/attack_tables.cpp.s
+.PHONY : attack_tables.cpp.s
+
 board.o: board.cpp.o
 .PHONY : board.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... chess_engine"
+	@echo "... attack_tables.o"
+	@echo "... attack_tables.i"
+	@echo "... attack_tables.s"
 	@echo "... board.o"
 	@echo "... board.i"
 	@echo "... board.s"

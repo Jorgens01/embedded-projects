@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/chess_engine.dir/attack_tables.cpp.o"
+  "CMakeFiles/chess_engine.dir/attack_tables.cpp.o.d"
   "CMakeFiles/chess_engine.dir/board.cpp.o"
   "CMakeFiles/chess_engine.dir/board.cpp.o.d"
   "CMakeFiles/chess_engine.dir/main.cpp.o"

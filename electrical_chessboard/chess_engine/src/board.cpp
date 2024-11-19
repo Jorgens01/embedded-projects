@@ -2,7 +2,7 @@
 
 Board::Board()
 {
-    initialize();
+    // initialize();
 }
 
 Board::~Board()
@@ -11,21 +11,20 @@ Board::~Board()
 
 bool Board::getBit(U64 bitboard, Square square)
 {
-    return (bitboard & (1ULL << static_cast<int>(square))) != 0;
+    return bitboard & (1ULL << static_cast<int>(square));
 }
 
-void Board::popBit(U64 bitboard, Square square)
+void Board::popBit(U64 &bitboard, Square square)
 {
-    if (getBit(bitboard, square)) {
-        bitboard ^= (1ULL << static_cast<int>(square));
-    }
+    bitboard &= ~(1ULL << static_cast<int>(square));
 }
 
-void Board::setBit(U64 bitboard, Square square)
+void Board::setBit(U64 &bitboard, Square square)
 {
     bitboard |= (1ULL << static_cast<int>(square));
 }
 
+/*
 void Board::initialize()
 {
     // Initialize black pieces
@@ -43,35 +42,30 @@ void Board::initialize()
     bitboards_[static_cast<size_t>(PieceType::WHITE_ROOKS)] = 0x8100000000000000ULL;
     bitboards_[static_cast<size_t>(PieceType::WHITE_QUEENS)] = 0x0800000000000000ULL;
     bitboards_[static_cast<size_t>(PieceType::WHITE_KING)] = 0x1000000000000000ULL;
-}
+} 
+*/
 
-void Board::print() const
-{
-    std::cout << '\n';
-    
-    for (int rank = 0; rank < 8; ++rank) {
-        std::cout << ' ' << 8 - rank << ' ';
-        
-        for (int file = 0; file < 8; ++file) {
-            Square square = static_cast<Square>(rank * 8 + file);
-            char piece_to_print = '.';
-            
-            for (size_t piece = 0; piece < PIECE_CHARS_.size(); ++piece) {
-                if (getBit(bitboards_[piece], square)) {
-                    piece_to_print = PIECE_CHARS_[piece];
-                    break;
-                }
-            }
-            
-            std::cout << ' ' << piece_to_print;
-        }
-        std::cout << '\n';
-    }
-    
-    std::cout << "\n a b c d e f g h\n";
-}
 
 U64 Board::getBitboard(PieceType piece) const
 {
     return bitboards_[static_cast<size_t>(piece)];
+}
+
+void Board::printBitboard(U64 bitboard)
+{
+    // Print ranks from top to bottom (8 to 1)
+    for (int rank = 0; rank <= 7; rank++) {
+        std::cout << rank + 1 << " | "; // Print rank number
+        // Print files from left to right (a to h)
+        for (int file = 0; file < 8; file++) {
+            // Calculate square index
+            Square square = static_cast<Square>(rank * 8 + file);
+            // Print '1' if bit is set, '.' if not
+            std::cout << (getBit(bitboard, square) ? "1 " : ". ");
+        }
+        std::cout << '\n';
+    }
+    // Print file labels
+    std::cout << "  -------------------------\n";
+    std::cout << "    a b c d e f g h\n\n";
 }

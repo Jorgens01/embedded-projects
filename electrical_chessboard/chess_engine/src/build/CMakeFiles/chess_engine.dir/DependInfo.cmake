@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/jorgens01/local_portfolio/embedded-projects/electrical_chessboard/chess_engine/src/attack_tables.cpp" "CMakeFiles/chess_engine.dir/attack_tables.cpp.o" "gcc" "CMakeFiles/chess_engine.dir/attack_tables.cpp.o.d"
   "/home/jorgens01/local_portfolio/embedded-projects/electrical_chessboard/chess_engine/src/board.cpp" "CMakeFiles/chess_engine.dir/board.cpp.o" "gcc" "CMakeFiles/chess_engine.dir/board.cpp.o.d"
   "/home/jorgens01/local_portfolio/embedded-projects/electrical_chessboard/chess_engine/src/main.cpp" "CMakeFiles/chess_engine.dir/main.cpp.o" "gcc" "CMakeFiles/chess_engine.dir/main.cpp.o.d"
   )

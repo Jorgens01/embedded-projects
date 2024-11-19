@@ -18,6 +18,7 @@ endif()
 add_executable(chess_engine
     main.cpp
     board.cpp
+    attack_tables.cpp
 )
 
 # Set include directories
