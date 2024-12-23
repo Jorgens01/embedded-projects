@@ -6,12 +6,8 @@ int main()
 {
     Board board;
 
-    // Create bitboard of pawn attacks
-    U64 bitboard = AttackTables::genWhitePawnAttacks(a4);
-
-    board.printBitboard(bitboard);
-
-    U64 bitboard_b = AttackTables::genBlackPawnAttacks(h4);
+    
+    U64 bitboard_b = AttackTables::genQueenAttacks(d4);
 
     board.printBitboard(bitboard_b);
 

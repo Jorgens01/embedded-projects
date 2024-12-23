@@ -48,18 +48,18 @@ void Board::initialize()
 
 U64 Board::getBitboard(PieceType piece) const
 {
-    return bitboards_[static_cast<size_t>(piece)];
+    return bitboards_[piece];
 }
 
 void Board::printBitboard(U64 bitboard)
 {
     // Print ranks from top to bottom (8 to 1)
     for (int rank = 0; rank <= 7; rank++) {
-        std::cout << rank + 1 << " | "; // Print rank number
+        std::cout << 8 - rank << " | "; // Print rank number
         // Print files from left to right (a to h)
         for (int file = 0; file < 8; file++) {
             // Calculate square index
-            Square square = static_cast<Square>(rank * 8 + file);
+            Square square = Square(rank * 8 + file);
             // Print '1' if bit is set, '.' if not
             std::cout << (getBit(bitboard, square) ? "1 " : ". ");
         }
